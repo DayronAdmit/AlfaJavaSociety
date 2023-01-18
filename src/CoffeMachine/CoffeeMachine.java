@@ -61,7 +61,7 @@ public class CoffeeMachine {
         }
         countOfWaterIn -= cupVolume;
         countOfCoffeeIn -= MAX_CONSUMPTION * coffeeStrength;
-        System.out.printf("Готовлю кофе %s объемом %d, крепость %.1f\n", coffeeIn.getCoffeeName(), cupVolume, coffeeStrength);
+        System.out.printf("Готовлю кофе %s объемом %d, крепость %.1f.\n", coffeeIn.getCoffeeInfo(), cupVolume, coffeeStrength);
     }
 
 }
