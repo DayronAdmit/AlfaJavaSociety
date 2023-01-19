@@ -42,7 +42,7 @@ public class CoffeeMachine {
         }
     }
 
-    public void makeCoffee(double coffeeStrength, int cupVolume) {
+    public void makeCoffee(CoffeeStrength coffeeStrength, int cupVolume) {
         if (cupVolume <= 0) {
             System.out.println("С твоей ёмкостью что-то не так, попробуй другую!");
             return;
@@ -51,17 +51,13 @@ public class CoffeeMachine {
             System.out.println("Долейте воды!");
             return;
         }
-        if (coffeeStrength < 0.1 || coffeeStrength > 1) {
-            System.out.println("Крепость напитка должна быть в пределах от 0.1 до 1.0");
-            return;
-        }
-        if (coffeeStrength * MAX_CONSUMPTION > countOfCoffeeIn) {
+        if (coffeeStrength.getStrength() * MAX_CONSUMPTION > countOfCoffeeIn) {
             System.out.println("Досыпьте кофе!");
             return;
         }
         countOfWaterIn -= cupVolume;
-        countOfCoffeeIn -= MAX_CONSUMPTION * coffeeStrength;
-        System.out.printf("Готовлю кофе %s объемом %d, крепость %.1f.\n", coffeeIn.getCoffeeInfo(), cupVolume, coffeeStrength);
+        countOfCoffeeIn -= MAX_CONSUMPTION * coffeeStrength.getStrength();
+        System.out.printf("Готовлю кофе %s объемом %d, крепость %.2f.\n", coffeeIn.getCoffeeInfo(), cupVolume, coffeeStrength.getStrength());
     }
 
 }
